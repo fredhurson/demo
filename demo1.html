@@ -1,0 +1,475 @@
+<html>
+<body>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script language="javascript">
+        function getElementsByClass(searchClass, domNode, tagName) {
+            if (domNode == null) domNode = document;
+            if (tagName == null) tagName = '*';
+            var el = new Array();
+            var tags = domNode.getElementsByTagName(tagName);
+            var tcl = " " + searchClass + " ";
+            for (i = 0, j = 0; i < tags.length; i++) {
+                var test = " " + tags[i].className + " ";
+                if (test.indexOf(tcl) != -1)
+                    el[j++] = tags[i];
+            }
+            return el;
+        }
+
+        function ShowHide(bioname) {
+            var bios = getElementsByClass('tabpic');
+            for (i = 0; i < bios.length; i++)
+                bios[i].style.display = 'none';
+            document.getElementById(bioname).style.display = 'block';
+        }
+    </script>
+    <style>
+        #content2,
+        #content3,
+        #content4,
+        #content5{
+            display: none;
+        }
+    </style>
+</head>
+<main class="wrapper">
+    <section class="hero">
+        <div>
+            <h1>Slate</h1>
+            <h2>Nex-Gen Luxury at Naples INFINITI</h2>
+        </div>
+    </section>
+    <div class="grid-container">
+        <div class="left">
+            <section class="intro">
+                <h2>Slate</h2>
+                <div>
+                    <p>This sedan from INFINITI gets a makeover to wow fans and keep up with (or surpass) the competition. This year's Q50 rolls off the production line with a new exterior design, more sophisticated technology, and a new platform that enhances its ride quality.</p>
+                    <p>The Infiniti Q50 has been around since 2014, and it's earned a reputation for being a fetching entry in the compact sport sedan segment. In 2016, things got more interesting when Infiniti brought us the Red Sport 400 model that upped the performance ante.</p>
+                </div>
+            </section>
+        </div>
+        <div class="right">
+            <section class="trims">
+                <div>
+                    <img style="max-width:100%;max-height:100%;" src="/mainimagedemo1.webp" />
+                </div>
+            </section>
+        </div>
+        <div class="left2">
+            <section class="trims">
+                <div id="content1" class="tabpic">
+                    <img style="max-width:100%;max-height:100%;" src="https://cka-dash.s3.amazonaws.com/053-0719-CKAdv/redone.jpg" />
+
+                </div>
+                <div id="content2" class="tabpic">
+
+                    <video loop muted autoplay width="100%" controls id="vid">
+                        <source src="q50.mp4" type="video/mp4">
+                        <source src="mov_bbb.ogg" type="video/ogg">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <div id="content3" class="tabpic utube">
+<iframe width="792" height="446" src="https://www.youtube-nocookie.com/embed/NHMkdK8G2b8/?autoplay=1&mute=1&rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div id="content4" class="tabpic">
+                    <img style="max-width:100%;max-height:100%;" src="https://cka-dash.s3.amazonaws.com/053-0719-CKAdv/q50_atu.jpg" />
+                </div>
+                <div id="content5" class="tabpic">
+                    <img style="max-width:100%;max-height:100%;" src="https://cka-dash.s3.amazonaws.com/053-0719-CKAdv/Johnny_Bravo_logo_men.png" />
+                </div>
+            </section>
+        </div>
+        <div class="right2">
+            <sectiontabs class="row">
+                <div class="main">
+
+                    <input checked id="tab1" type="radio" name="tabs">
+                    <a href="#" onclick="ShowHide('content1');"><label for="tab1">Pure</label></a>
+
+                    <input id="tab2" type="radio" name="tabs">
+                    <a href="#" onclick="ShowHide('content2');"><label for="tab2">Luxe</label></a>
+
+                    <input id="tab3" type="radio" name="tabs">
+                    <a href="#" onclick="ShowHide('content3');"><label for="tab3">Sport</label></a>
+
+                    <input id="tab4" type="radio" name="tabs">
+                    <a href="#" onclick="ShowHide('content4');"><label for="tab4">Sport 400</label></a>
+                    
+                     <input id="tab5" type="radio" name="tabs">
+                    <a href="#" onclick="ShowHide('content5');"><label for="tab5">MIKE HUNTER</label></a>
+
+                    <div class="content">
+                        <div id="content1">
+                        <ul>
+                            <li>$35,550 Pure</li>
+                            <li>leatherette seats</li>
+                            <li>eight-way power-adjustable front seats</li>
+                            <li>leather-wrapped steering wheel</li>
+                            <li>rain-sensing windshield wipers</li>
+                            <li>dual-zone automatic climate control</li>
+                            <li>8-inch upper touch screen</li>
+                            <li>7-inch lower touch screen</li>
+                            <li>Bluetooth</li>
+                            <li>2 USB ports</li>
+                            <li>voice recognition</li>
+                            <li>HD Radio</li>
+                            <li>satellite radio</li>
+                            <li>six-speaker audio system</li>
+                    </ul>
+                        </div>
+                        <div id="content2">
+                            <ul>                         
+                                <li>$38,000 Luxe</li>
+                                <li>300-horsepower V6 engine</li>
+                                <li>moonroof</li>
+                                <li>Essential package adds</li>
+                                <li>navigation</li>
+                                <li>heated steering wheel</li>
+                                <li>heated front seats</li>
+                                <li>remote start</li>
+                                <li>ProAssist package adds</li>
+                                <li>blind spot monitoring</li>
+                                <li>360-degree camera</li>
+                                <li>front and rear parking sensors</li>
+                                <li>backup collision intervention</li>
+                                <li>rear cross traffic alert</li>
+    </ul>
+                        </div>
+
+                        <div id="content3">
+                         <ul>
+                             <li>$47,950  Sport</li>
+                             <li>16-speaker Bose premium audio system</li>
+                             <li>power tilt-and-telescoping steering wheel</li>
+                             <li>driver's seat with memory settings</li>
+                             <li>front sport seats</li>
+                             <li>leather upholstery</li>
+                             <li>sporty styling enhancements</li>
+                             <li>ProActive package adds</li>
+                             <li>Direct Adaptive Steering</li>
+                             <li>adaptive cruise control</li>
+                             <li>lane departure warning</li>
+                             <li>lane departure prevention</li>
+                             <li>active lane control</li>
+                             <li>blind spot intervention</li>
+                             <li>adaptive headlights</li>
+                             <li>high beam assist</li>
+                       </ul>
+                        </div>
+
+                        <div id="content4">
+                         <ul>
+                             <li>$51,250  Red Sport</li>
+                             <li>400-horsepower V6 engine</li>
+                             <li>Sensory package costs $2,650 adds</li>
+                             <li>ambient lighting</li>
+                             <li>climate control system-air purifier</li>
+                       </ul>
+
+                        </div>
+                        <div id="content5">
+<p>DEMO PAGE DETAILS MIKE! for Model Trims - 1. USING GRID layout-responsively ! :-), 2. Background image hero, in grid at top, does not show white space padding on mobile using background-size: cover; + with multiple images at different media query sizes, 3. Tab section, when you click on one tab= two divs switch (js used could not find another way to do what I wanted here :-) - FUTURE - could create section for each Model car re-use on other websites, create CK Advertising review videos, etc... most import part is not having to scroll much to get information, also used one mp4 file and one youtube iframe and found responsive css for iframe seeems to work, mp4 seems responsive in its' HTML5 video tag simply width="100%" !, 4. used some css on paragraph Q50 ....- text-align: justify; text-justify: auto; seems to treat letters/indents more cleanly than what just p-tag will do -  thanks Mike!</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="column right">
+                    <div id="trim">
+
+                    </div>
+                </div>
+            </sectiontabs>
+        </div>
+        <div class="foot">
+            <section class="footer">
+                <h2>INFINITI of Naples</h2>
+                <div>
+                    <h2>Your Local INFINITI Dealer</h2>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+    <style>
+    .utube{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+    .utube iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+        }
+        .hero {
+
+           background: url('mainimagedemo1.webp') no-repeat center;
+            background-size: cover;
+            overflow: hidden;
+            padding: 12rem 2rem;
+            display: grid;
+            grid-auto-rows: auto;
+        }
+        .intro {padding: 110px;}
+        .hero>* {
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .hero>article>p {
+            font-size: 1.5rem;
+            font-weight: 200;
+        }
+
+        .hero>article>a {
+            padding: 1rem;
+            margin-top: .75rem;
+        }
+
+
+        /* footer */
+        footer {
+            background-color: #333;
+            padding: .75rem;
+            color: white;
+            text-align: center;
+            font-size: .75rem;
+        }
+
+        .grid-container {
+            box-sizing: border-box;
+        }
+        .grid-container h2{
+            box-sizing: border-box;
+        }
+
+        .hero img {
+            width: 100vh;
+            height: 100vh;
+        }
+
+        .dropdowntitle,
+        article>* {
+            cursor: pointer;
+        }
+
+        .dropdowntitle:focus+.dropdowninfo {
+            display: block;
+        }
+
+        .dropdowninfo {
+            background-color: inherit;
+            display: none;
+            height: inherit;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "header header"
+                "left right"
+                "lefta righta"
+                "footer footer";
+        }
+
+        .foot {
+            grid-area: footer;
+            text-align: center;
+            margin: 40px;
+        }
+
+
+        .grid-container .head {
+            grid-area: header;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 0 !important;
+
+        }
+
+        .head-text {
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+
+        .left {
+            grid-area: left;
+            padding: 20px 30px;
+            text-align: justify;
+            text-justify: auto;
+
+        }
+
+        .right {
+            grid-area: right;
+        }
+
+        .left2 {
+            grid-area: lefta;
+            padding: 10px;
+        }
+
+        .right2 {
+            grid-area: righta;
+        }
+
+        .column {
+            float: left;
+        }
+
+        .row {
+            margin: 20px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /*TAB MENU*/
+        *,
+        *:before,
+        *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* You can safely remove the next two lines */
+        .top {
+            padding-right: 20px;
+            background: #261F41;
+            text-align: right;
+        }
+
+        a {
+            color: #000000;
+            text-transform: uppercase;
+            text-decoration: none;
+            line-height: 42px;
+        }
+
+
+
+        p {
+            margin: 0 0 10px;
+            line-height: 1.5;
+            min-height: 100px;
+        }
+
+        .main {
+            margin: 0 auto;
+            min-width: 320px;
+            max-width: 800px;
+        }
+
+        .content {
+            background: #fff;
+            color: #373737;
+        }
+
+        .content>div {
+            display: none;
+            padding: 20px 25px 5px;
+        }
+
+        input {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            padding: 15px 25px;
+            font-weight: 600;
+            text-align: center;
+            background-color: bisque;
+        }
+
+        label:hover {
+            color: red;
+            cursor: pointer;
+        }
+
+        a:checked {
+            background: green;
+            color: #000;
+        }
+
+        #tab1:checked~.content #content1,
+        #tab2:checked~.content #content2,
+        #tab3:checked~.content #content3,
+        #tab4:checked~.content #content4, 
+        #tab5:checked~.content #content5{
+            display: block;
+        }
+
+        @media (max-width: 1200px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+                grid-template-areas: "header"
+                    "left"
+                    "right"
+                    "lefta"
+                    "righta"
+                    "footer";
+            }
+
+            .hero {
+            background: url('mainimagedemo1.webp') no-repeat;
+            background-size: 100% auto;
+            max-height: 510px;
+            overflow: hidden;
+            padding: 1rem 1rem;
+            display: grid;
+
+            }
+
+        }
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+                grid-template-areas: "header"
+                    "left"
+                    "right"
+                    "lefta"
+                    "righta"
+                    "footer";
+            }
+
+            .hero {
+            background: url('mainimagedemo1.webp') no-repeat;
+            background-size: 100% auto;
+            max-height: 210px;
+            overflow: hidden;
+            padding: 1rem 2rem;
+            display: grid;
+
+            }
+
+        }
+
+        label {
+            padding: 10px 15px;
+        }
+        .intro {padding: 2px;}
+    </style>
+
+
+</body>
+
+</html>
