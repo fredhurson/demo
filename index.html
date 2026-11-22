@@ -1,177 +1,301 @@
 <html>
+
 <body>
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script language="javascript">
-        function getElementsByClass(searchClass, domNode, tagName) {
-            if (domNode == null) domNode = document;
-            if (tagName == null) tagName = '*';
-            var el = new Array();
-            var tags = domNode.getElementsByTagName(tagName);
-            var tcl = " " + searchClass + " ";
-            for (i = 0, j = 0; i < tags.length; i++) {
-                var test = " " + tags[i].className + " ";
-                if (test.indexOf(tcl) != -1)
-                    el[j++] = tags[i];
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="javascript">
+            function getElementsByClass(searchClass, domNode, tagName) {
+                if (domNode == null) domNode = document;
+                if (tagName == null) tagName = '*';
+                var el = new Array();
+                var tags = domNode.getElementsByTagName(tagName);
+                var tcl = " " + searchClass + " ";
+                for (i = 0, j = 0; i < tags.length; i++) {
+                    var test = " " + tags[i].className + " ";
+                    if (test.indexOf(tcl) != -1)
+                        el[j++] = tags[i];
+                }
+                return el;
             }
-            return el;
-        }
 
-        function ShowHide(bioname) {
-            var bios = getElementsByClass('tabpic');
-            for (i = 0; i < bios.length; i++)
-                bios[i].style.display = 'none';
-            document.getElementById(bioname).style.display = 'block';
-        }
-    </script>
-    <style>
-        #content2,
-        #content3,
-        #content4,
-        #content5{
-            display: none;
-        }
-    </style>
-</head>
-<main class="wrapper">
-    <section class="hero">
-        <div>
-            <h1>Slate</h1>
-            <h2>Nex-Gen Economy</h2>
-        </div>
-    </section>
-    <div class="grid-container">
-        <div class="left">
-            <section class="intro">
-                <h2>Slate</h2>
-                <div>
-                     <p>The Slate is an upcoming battery-electric vehicle, the first to be manufactured by Slate Auto. It will be available for customers to order as either a compact pickup truck or SUV, and designed to be convertible between the body styles. It was unveiled for reservations on April 24, 2025,[6] began accepting preorders on June 24, 2026, with deliveries expected to begin in late 2026.</p>
-                    <p>Slate says its new 201-hp electric vehicle is "a radical truck platform so customizable that it can transform from a 2-seat pickup to a 5-seat SUV.” They claim it'll go 150 miles on a 52.7-kWh battery pack or 240 on an 84.3-kWh pack. Pricing will be $20,000 "after federal incentives," Slate says. The company's investors include Jeff Bezos.</p>
-<p>Designed around a starting price of US$24,950, the vehicle uses a simplified design with fewer parts and omits features such as an infotainment system, speakers, and power windows. All vehicles are to be produced with an unpainted gray plastic exterior and support customization through accessories and vinyl wraps.</p>
-                </div>
-            </section>
-        </div>
-        <div class="right">
-            <section class="trims">
-                <div>
-                    <img style="max-width:100%;max-height:100%;" src="quarterimage.webp" />
-                </div>
-            </section>
-        </div>
-        <div class="left2">
-            <section class="trims">
-                <div id="content1" class="tabpic">
-                    <img style="max-width:100%;max-height:100%;" src="slatespecslast.webp" />
+            function ShowHide(bioname) {
+                var bios = getElementsByClass('tabpic');
+                for (i = 0; i < bios.length; i++)
+                    bios[i].style.display = 'none';
+                document.getElementById(bioname).style.display = 'block';
+            }
 
-                </div>
-                <div id="content2" class="tabpic">
+        </script>
+        <style>
+            #content2,
+            #content3,
+            #content4,
+            #content5 {
+                display: none;
+            }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <style>
+            .fira-sans-thin {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 100;
+                font-style: normal;
+            }
 
-                    <video loop muted autoplay width="100%" controls id="vid">
-                        <source src="slatevideo.mp4" type="video/mp4">
-                        <source src="mov_bbb.ogg" type="video/ogg">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                <div id="content3" class="tabpic utube">
-<iframe width="792" height="446" src="https://www.youtube.com/embed/mxMd3SNEKCA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div id="content4" class="tabpic">
-                    <img style="max-width:100%;max-height:100%;" src="https://cka-dash.s3.amazonaws.com/053-0719-CKAdv/q50_atu.jpg" />
-                </div>
-               
-            </section>
-        </div>
-        <div class="right2">
-            <sectiontabs class="row">
-                <div class="main">
+            .fira-sans-extralight {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 200;
+                font-style: normal;
+            }
 
-                    <input checked id="tab1" type="radio" name="tabs">
-                    <a href="#" onclick="ShowHide('content1');"><label for="tab1">WIll NOT Include</label></a>
+            .fira-sans-light {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 300;
+                font-style: normal;
+            }
 
-                    <input id="tab2" type="radio" name="tabs">
-                    <a href="#" onclick="ShowHide('content2');"><label for="tab2">TAKE A LOOK</label></a>
+            .fira-sans-regular {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+            }
 
-                    <input id="tab3" type="radio" name="tabs">
-                    <a href="#" onclick="ShowHide('content3');"><label for="tab3">MEET THE SLATE</label></a>
+            .fira-sans-medium {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 500;
+                font-style: normal;
+            }
 
-                    <input id="tab4" type="radio" name="tabs">
-                    <a href="#" onclick="ShowHide('content4');"><label for="tab4">Service</label></a>
-                    
-                     
-                    <div class="content">
-                        <div id="content1">
-                            <h3> Will Not Include:</h3>
-                           <ul>
-                               <li>infotainment system</li>
-                               <li>speakers</li>
-                               <li>power windows</li>
-                               <li>colors gray is only color</li>
-                            </ul>
-                    
-                        </div>
-                        <div id="content2">
-                            <h3><a href="https://www.slate.auto/en/preorder">PREORDER NOW</a></h3>
-                           
-                        </div>
+            .fira-sans-semibold {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 600;
+                font-style: normal;
+            }
 
-                        <div id="content3">
-                            <h3>Bodystyles</h3>
-                            <p>The base Slate model will be a pickup truck, but can be configured as a 5-seat SUV with a traditional squared-off roof or a fastback roof. While customers will be able to purchase the parts to complete the conversions (roll cage, rear bench seat, and exterior shell with two additional side curtain airbags), in June 2026 the company announced it would offer the two SUV designs from the factory.</p>
-                        </div>
+            .fira-sans-bold {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 700;
+                font-style: normal;
+            }
 
-                        <div id="content4">
-                            <h3>Service and customization</h3>
-                            <p>The company plans to provide repair guides through its Slate U platform and has announced a 10-year/110,000-mile battery and powertrain warranty.[17] In October 2025, Slate Auto announced a partnership with RepairPal to provide owners access to a network of approximately 3,000 service locations in the United States, including more than 100 facilities capable of performing high-voltage electric vehicle repairs.[12][18]</p>
+            .fira-sans-extrabold {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 800;
+                font-style: normal;
+            }
 
-                            <p>The vehicle will support extensive customization through a marketplace offering more than 200 accessories, including vinyl wraps, roof racks, audio systems, seat covers, and light covers.</p>
+            .fira-sans-black {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 900;
+                font-style: normal;
+            }
 
-                        </div>
-                        
+            .fira-sans-thin-italic {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 100;
+                font-style: italic;
+            }
+
+            .fira-sans-extralight-italic {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 200;
+                font-style: italic;
+            }
+
+            .fira-sans-light-italic {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 300;
+                font-style: italic;
+            }
+
+            .fira-sans-regular-italic {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 400;
+                font-style: italic;
+            }
+
+            .fira-sans-medium-italic {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 500;
+                font-style: italic;
+            }
+
+            .fira-sans-semibold-italic {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 600;
+                font-style: italic;
+            }
+
+            .fira-sans-bold-italic {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 700;
+                font-style: italic;
+            }
+
+            .fira-sans-extrabold-italic {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 800;
+                font-style: italic;
+            }
+
+            .fira-sans-black-italic {
+                font-family: "Fira Sans", sans-serif;
+                font-weight: 900;
+                font-style: italic;
+            }
+
+            body {
+                font-family: "Fira Sans", sans-serif;
+            }
+
+        </style>
+    </head>
+    <main class="wrapper">
+        <section class="hero">
+            <div>
+                <h1>Slate</h1>
+                <h2>Nex-Gen Economy</h2>
+            </div>
+        </section>
+        <div class="grid-container">
+            <div class="left">
+                <section class="intro">
+                    <h2>Slate</h2>
+                     <div>
+                        <p>The Slate is an upcoming battery-electric vehicle, the first to be manufactured by Slate Auto. It will be available for customers to order as either a compact pickup truck or SUV, and designed to be convertible between the body styles. It was unveiled for reservations on April 24, 2025,[6] began accepting preorders on June 24, 2026, with deliveries expected to begin in late 2026.</p>
+                        <p>Slate says its new 201-hp electric vehicle is "a radical truck platform so customizable that it can transform from a 2-seat pickup to a 5-seat SUV.” They claim it'll go 150 miles on a 52.7-kWh battery pack or 240 on an 84.3-kWh pack. Pricing will be $20,000 "after federal incentives," Slate says. The company's investors include Jeff Bezos.</p>
+                        <p>Designed around a starting price of US$24,950, the vehicle uses a simplified design with fewer parts and omits features such as an infotainment system, speakers, and power windows. All vehicles are to be produced with an unpainted gray plastic exterior and support customization through accessories and vinyl wraps.</p>
+                    </div>
+                </section>
+            </div>
+            <div class="right">
+                <section class="trims">
+                    <div>
+                        <img style="max-width:100%;max-height:100%;" src="quarterimage.webp" />
+                    </div>
+                </section>
+            </div>
+            <div class="left2">
+                <section class="trims">
+                    <div id="content1" class="tabpic">
+                        <img style="max-width:100%;max-height:100%;" src="slatespecslast.webp" />
+
+                    </div>
+                    <div id="content2" class="tabpic">
+
+                        <video loop muted autoplay width="100%" controls id="vid">
+                            <source src="slatedemo.mp4" type="video/mp4">
+                            <source src="mov_bbb.ogg" type="video/ogg">
+                            Your browser does not support HTML5 video.
+                        </video>
+                    </div>
+                    <div id="content3" class="tabpic utube">
+                        <iframe width="792" height="446" src="https://www.youtube.com/embed/mxMd3SNEKCA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div id="content4" class="tabpic">
+                        <img style="max-width:100%;max-height:100%;" src="https://cka-dash.s3.amazonaws.com/053-0719-CKAdv/q50_atu.jpg" />
                     </div>
 
-                </div>
-                <div class="column right">
-                    <div id="trim">
+                </section>
+            </div>
+            <div class="right2">
+                <sectiontabs class="row">
+                    <div class="main">
+
+                        <input checked id="tab1" type="radio" name="tabs">
+                        <a href="#" onclick="ShowHide('content1');"><label for="tab1">WIll NOT Include</label></a>
+
+                        <input id="tab2" type="radio" name="tabs">
+                        <a href="#" onclick="ShowHide('content2');"><label for="tab2">TAKE A LOOK</label></a>
+
+                        <input id="tab3" type="radio" name="tabs">
+                        <a href="#" onclick="ShowHide('content3');"><label for="tab3">MEET THE SLATE</label></a>
+
+                        <input id="tab4" type="radio" name="tabs">
+                        <a href="#" onclick="ShowHide('content4');"><label for="tab4">Service</label></a>
+
+
+                        <div class="content">
+                            <div id="content1">
+                                <h3> Will Not Include:</h3>
+                                <ul>
+                                    <li>infotainment system</li>
+                                    <li>speakers</li>
+                                    <li>power windows</li>
+                                    <li>colors gray is only color</li>
+                                </ul>
+
+                            </div>
+                            <div id="content2">
+                                <h3><a href="https://www.slate.auto/en/preorder">PREORDER NOW</a></h3>
+
+                            </div>
+
+                            <div id="content3">
+                                <h3>Bodystyles</h3>
+                                <p>The base Slate model will be a pickup truck, but can be configured as a 5-seat SUV with a traditional squared-off roof or a fastback roof. While customers will be able to purchase the parts to complete the conversions (roll cage, rear bench seat, and exterior shell with two additional side curtain airbags), in June 2026 the company announced it would offer the two SUV designs from the factory.</p>
+                            </div>
+
+                            <div id="content4">
+                                <h3>Service and customization</h3>
+                                <p>The company plans to provide repair guides through its Slate U platform and has announced a 10-year/110,000-mile battery and powertrain warranty.[17] In October 2025, Slate Auto announced a partnership with RepairPal to provide owners access to a network of approximately 3,000 service locations in the United States, including more than 100 facilities capable of performing high-voltage electric vehicle repairs.[12][18]</p>
+
+                                <p>The vehicle will support extensive customization through a marketplace offering more than 200 accessories, including vinyl wraps, roof racks, audio systems, seat covers, and light covers.</p>
+
+                            </div>
+
+                        </div>
 
                     </div>
-                </div>
-            </sectiontabs>
+                    <div class="column right">
+                        <div id="trim">
+
+                        </div>
+                    </div>
+                </sectiontabs>
+            </div>
+            <div class="foot">
+                <section class="footer">
+                    <h2>Slate</h2>
+                    <div>
+                        <h2>THe future of Economy Trucks</h2>
+                    </div>
+                </section>
+            </div>
         </div>
-        <div class="foot">
-            <section class="footer">
-                <h2>Slate</h2>
-                <div>
-                    <h2>THe future of Economy Trucks</h2>
-                </div>
-            </section>
-        </div>
-    </div>
-</main>
+    </main>
     <style>
-    .utube{
-    overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
-}
-    .utube iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
+        .utube {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
         }
+
+        .utube iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
         .hero {
 
-           background: url('mainimagedemo1.webp') no-repeat center;
+            background: url('mainimagedemo1.webp') no-repeat center;
             background-size: cover;
             overflow: hidden;
             padding: 12rem 2rem;
             display: grid;
             grid-auto-rows: auto;
         }
-        .intro {padding: 110px;}
+
+        .intro {
+            padding: 110px;
+        }
+
         .hero>* {
             color: white;
             padding: 80px 20px;
@@ -200,7 +324,8 @@
         .grid-container {
             box-sizing: border-box;
         }
-        .grid-container h2{
+
+        .grid-container h2 {
             box-sizing: border-box;
         }
 
@@ -365,8 +490,8 @@
         #tab1:checked~.content #content1,
         #tab2:checked~.content #content2,
         #tab3:checked~.content #content3,
-        #tab4:checked~.content #content4, 
-        #tab5:checked~.content #content5{
+        #tab4:checked~.content #content4,
+        #tab5:checked~.content #content5 {
             display: block;
         }
 
@@ -383,16 +508,17 @@
             }
 
             .hero {
-            background: url('https://cka-dash.s3.amazonaws.com/053-0719-CKAdv/mainimage_infiniti_600.jpg') no-repeat;
-            background-size: 100% auto;
-            max-height: 310px;
-            overflow: hidden;
-            padding: 1rem 1rem;
-            display: grid;
+                background: url('https://cka-dash.s3.amazonaws.com/053-0719-CKAdv/mainimage_infiniti_600.jpg') no-repeat;
+                background-size: 100% auto;
+                max-height: 310px;
+                overflow: hidden;
+                padding: 1rem 1rem;
+                display: grid;
 
             }
 
         }
+
         @media (max-width: 600px) {
             .grid-container {
                 grid-template-columns: 1fr;
@@ -406,12 +532,12 @@
             }
 
             .hero {
-            background: url('https://cka-dash.s3.amazonaws.com/053-0719-CKAdv/mainimage_infiniti_375.png') no-repeat;
-            background-size: 100% auto;
-            max-height: 210px;
-            overflow: hidden;
-            padding: 1rem 2rem;
-            display: grid;
+                background: url('https://cka-dash.s3.amazonaws.com/053-0719-CKAdv/mainimage_infiniti_375.png') no-repeat;
+                background-size: 100% auto;
+                max-height: 210px;
+                overflow: hidden;
+                padding: 1rem 2rem;
+                display: grid;
 
             }
 
@@ -420,7 +546,11 @@
         label {
             padding: 10px 15px;
         }
-        .intro {padding: 2px;}
+
+        .intro {
+            padding: 2px;
+        }
+
     </style>
 
 
