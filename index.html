@@ -295,14 +295,15 @@
             position: absolute;
         }
 
-        /* Full-image hero: contain prevents cropping. */
+        /* Match the hero's aspect ratio to the source image.
+           This keeps the full truck visible while filling the page width. */
         .hero {
             background: url('mainimagedemo1.webp') no-repeat center center;
-            background-size: cover;
+            background-size: 100% 100%;
             background-color: transparent;
-            background-position: center center;
-            min-height: clamp(300px, 38vw, 560px);
-            padding: 2rem;
+            aspect-ratio: 1581 / 936;
+            min-height: 0;
+            padding: 0;
             display: grid;
             align-items: center;
         }
@@ -519,13 +520,13 @@
 
             .hero {
                 background: url('wrapped.webp') no-repeat center center;
-                background-size: cover;
-                background-color: transparent;
+                background-size: 100% 100%;
                 background-position: center center;
-                min-height: clamp(260px, 38vw, 400px);
+                aspect-ratio: 776 / 430;
+                min-height: 0;
                 max-height: none;
                 overflow: visible;
-                padding: 1rem;
+                padding: 0;
             }
 
         }
@@ -544,13 +545,13 @@
 
             .hero {
                 background: url('price.webp') no-repeat center center;
-                background-size: cover;
-                background-color: transparent;
+                background-size: 100% 100%;
                 background-position: center center;
-                min-height: clamp(190px, 52vw, 300px);
+                aspect-ratio: 639 / 415;
+                min-height: 0;
                 max-height: none;
                 overflow: visible;
-                padding: 1rem 2rem;
+                padding: 0;
             }
 
         }
