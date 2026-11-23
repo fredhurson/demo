@@ -284,12 +284,13 @@
 
         .hero {
 
-            background: url('mainimagedemo1.webp') no-repeat center;
-            background-size: cover;
-            overflow: hidden;
-            padding: 12rem 2rem;
+            background: url('mainimagedemo1.webp') no-repeat center center;
+             background-color: transparent;
+            aspect-ratio: 1581 / 936;
+            min-height: 0;
+            padding: 0;
             display: grid;
-            grid-auto-rows: auto;
+            align-items: center;
         }
 
         .intro {
@@ -508,12 +509,14 @@
             }
 
             .hero {
-                background: url('wrapped.webp') no-repeat;
-                background-size: 100% auto;
-                max-height: 310px;
-                overflow: hidden;
-                padding: 1rem 1rem;
-                display: grid;
+                background: url('wrapped.webp') no-repeat center center;
+                background-size: 100% 100%;
+                background-position: center center;
+                aspect-ratio: 776 / 430;
+                min-height: 0;
+                max-height: none;
+                overflow: visible;
+                padding: 0;
 
             }
 
@@ -532,12 +535,14 @@
             }
 
             .hero {
-                background: url('price.webp') no-repeat;
-                background-size: 100% auto;
-                max-height: 210px;
-                overflow: hidden;
-                padding: 1rem 2rem;
-                display: grid;
+                background: url('price.webp') no-repeat center center;
+                background-size: 100% 100%;
+                background-position: center center;
+                aspect-ratio: 639 / 415;
+                min-height: 0;
+                max-height: none;
+                overflow: visible;
+                padding: 0;
 
             }
 
