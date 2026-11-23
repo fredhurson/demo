@@ -28,7 +28,81 @@
 
         </script>
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+           @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+  padding: 14px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  background: linear-gradient(120deg, #8b5cf6 0%, #ec4899 55%, #fb923c 100%);
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px -8px rgba(236, 72, 153, .6), inset 0 1px 0 0 rgba(255, 255, 255, .35);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 200ms cubic-bezier(.2,.8,.2,1), box-shadow 200ms cubic-bezier(.2,.8,.2,1), filter 200ms cubic-bezier(.2,.8,.2,1);
+}
+
+.btn__icon {
+  display: inline-block;
+  transition: transform 200ms cubic-bezier(.2,.8,.2,1);
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, .45) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform .7s ease;
+  pointer-events: none;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+  box-shadow: 0 13px 36px -8px rgba(236, 72, 153, .6), inset 0 1px 0 0 rgba(255, 255, 255, .35);
+}
+
+.btn:hover::after {
+  transform: translateX(120%);
+}
+
+.btn:hover .btn__icon {
+  transform: translateX(3px);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 9px 30px -8px rgba(236, 72, 153, .6), inset 0 1px 0 0 rgba(255, 255, 255, .35);
+  transition-duration: 100ms;
+}
+
+.btn:focus-visible {
+  outline: 3px solid #a78bfa;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn::after,
+  .btn__icon {
+    transition: none;
+    animation: none;
+  }
+}
 
             #content2,
             #content3,
