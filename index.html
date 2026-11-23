@@ -298,8 +298,9 @@
         /* Full-image hero: contain prevents cropping. */
         .hero {
             background: url('mainimagedemo1.webp') no-repeat center center;
-            background-size: contain;
-            background-color: #222;
+            background-size: cover;
+            background-color: transparent;
+            background-position: center center;
             min-height: clamp(300px, 38vw, 560px);
             padding: 2rem;
             display: grid;
@@ -518,8 +519,9 @@
 
             .hero {
                 background: url('wrapped.webp') no-repeat center center;
-                background-size: contain;
-                background-color: #222;
+                background-size: cover;
+                background-color: transparent;
+                background-position: center center;
                 min-height: clamp(260px, 38vw, 400px);
                 max-height: none;
                 overflow: visible;
@@ -542,8 +544,9 @@
 
             .hero {
                 background: url('price.webp') no-repeat center center;
-                background-size: contain;
-                background-color: #222;
+                background-size: cover;
+                background-color: transparent;
+                background-position: center center;
                 min-height: clamp(190px, 52vw, 300px);
                 max-height: none;
                 overflow: visible;
