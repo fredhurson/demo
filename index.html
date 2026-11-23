@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<html>
+
+<body>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script language="javascript">
             function getElementsByClass(searchClass, domNode, tagName) {
                 if (domNode == null) domNode = document;
@@ -23,11 +21,9 @@
 
             function ShowHide(bioname) {
                 var bios = getElementsByClass('tabpic');
-                for (var i = 0; i < bios.length; i++) {
+                for (i = 0; i < bios.length; i++)
                     bios[i].style.display = 'none';
-                }
-                var selected = document.getElementById(bioname);
-                if (selected) selected.style.display = 'block';
+                document.getElementById(bioname).style.display = 'block';
             }
 
         </script>
@@ -38,7 +34,10 @@
             #content5 {
                 display: none;
             }
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <style>
             .fira-sans-thin {
                 font-family: "Fira Sans", sans-serif;
                 font-weight: 100;
@@ -152,8 +151,7 @@
             }
 
         </style>
-</head>
-<body>
+    </head>
     <main class="wrapper">
         <section class="hero">
             <div>
@@ -181,11 +179,11 @@
             </div>
             <div class="left2">
                 <section class="trims">
-                    <div id="media1" class="tabpic">
+                    <div id="content1" class="tabpic">
                         <img style="max-width:100%;max-height:100%;" src="slatespecslast.webp" />
 
                     </div>
-                    <div id="media2" class="tabpic">
+                    <div id="content2" class="tabpic">
 
                         <video loop muted autoplay width="100%" controls id="vid">
                             <source src="slatedemo.mp4" type="video/mp4">
@@ -193,10 +191,10 @@
                             Your browser does not support HTML5 video.
                         </video>
                     </div>
-                    <div id="media3" class="tabpic utube">
+                    <div id="content3" class="tabpic utube">
                         <iframe width="792" height="446" src="https://www.youtube.com/embed/mxMd3SNEKCA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
-                    <div id="media4" class="tabpic">
+                    <div id="content4" class="tabpic">
                         <img style="max-width:100%;max-height:100%;" src="https://cka-dash.s3.amazonaws.com/053-0719-CKAdv/q50_atu.jpg" />
                     </div>
 
@@ -207,16 +205,16 @@
                     <div class="main">
 
                         <input checked id="tab1" type="radio" name="tabs">
-                        <a href="#" onclick="ShowHide('media1'); return false;"><label for="tab1">WIll NOT Include</label></a>
+                        <a href="#" onclick="ShowHide('content1');"><label for="tab1">WIll NOT Include</label></a>
 
                         <input id="tab2" type="radio" name="tabs">
-                        <a href="#" onclick="ShowHide('media2'); return false;"><label for="tab2">TAKE A LOOK</label></a>
+                        <a href="#" onclick="ShowHide('content2');"><label for="tab2">TAKE A LOOK</label></a>
 
                         <input id="tab3" type="radio" name="tabs">
-                        <a href="#" onclick="ShowHide('media3'); return false;"><label for="tab3">MEET THE SLATE</label></a>
+                        <a href="#" onclick="ShowHide('content3');"><label for="tab3">MEET THE SLATE</label></a>
 
                         <input id="tab4" type="radio" name="tabs">
-                        <a href="#" onclick="ShowHide('media4'); return false;"><label for="tab4">Service</label></a>
+                        <a href="#" onclick="ShowHide('content4');"><label for="tab4">Service</label></a>
 
 
                         <div class="content">
@@ -269,17 +267,6 @@
         </div>
     </main>
     <style>
-        .tabpic { display: none; }
-        #media1 { display: block; }
-
-        .tabpic img,
-        .tabpic video {
-            display: block;
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-        }
-
         .utube {
             overflow: hidden;
             padding-bottom: 56.25%;
@@ -295,17 +282,14 @@
             position: absolute;
         }
 
-        /* Match the hero's aspect ratio to the source image.
-           This keeps the full truck visible while filling the page width. */
         .hero {
-            background: url('mainimagedemo1.webp') no-repeat center center;
-            background-size: 100% 100%;
-            background-color: transparent;
-            aspect-ratio: 1581 / 936;
-            min-height: 0;
-            padding: 0;
+
+            background: url('mainimagedemo1.webp') no-repeat center;
+            background-size: cover;
+            overflow: hidden;
+            padding: 12rem 2rem;
             display: grid;
-            align-items: center;
+            grid-auto-rows: auto;
         }
 
         .intro {
@@ -343,6 +327,11 @@
 
         .grid-container h2 {
             box-sizing: border-box;
+        }
+
+        .hero img {
+            width: 100vh;
+            height: 100vh;
         }
 
         .dropdowntitle,
@@ -519,14 +508,13 @@
             }
 
             .hero {
-                background: url('wrapped.webp') no-repeat center center;
-                background-size: 100% 100%;
-                background-position: center center;
-                aspect-ratio: 776 / 430;
-                min-height: 0;
-                max-height: none;
-                overflow: visible;
-                padding: 0;
+                background: url('wrapped.webp') no-repeat;
+                background-size: 100% auto;
+                max-height: 310px;
+                overflow: hidden;
+                padding: 1rem 1rem;
+                display: grid;
+
             }
 
         }
@@ -544,14 +532,13 @@
             }
 
             .hero {
-                background: url('price.webp') no-repeat center center;
-                background-size: 100% 100%;
-                background-position: center center;
-                aspect-ratio: 639 / 415;
-                min-height: 0;
-                max-height: none;
-                overflow: visible;
-                padding: 0;
+                background: url('price.webp') no-repeat;
+                background-size: 100% auto;
+                max-height: 210px;
+                overflow: hidden;
+                padding: 1rem 2rem;
+                display: grid;
+
             }
 
         }
@@ -568,4 +555,5 @@
 
 
 </body>
+
 </html>
