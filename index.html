@@ -1,347 +1,847 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slate | Fully Electric Economy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#061a2b">
+    <title>Fred — Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #061a2b;
+            --panel: #08243a;
+            --panel2: #0a2d48;
+            --blue: #0797f5;
+            --cyan: #32d6ec;
+            --white: #f5f8fc;
+            --muted: #a7bacb;
+            --line: rgba(180, 214, 239, .17)
+        }
 
-  <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Fira Sans", sans-serif;
-      color: #252b30;
-      background: #fff;
-    }
-    img, video, iframe { max-width: 100%; }
-    p { line-height: 1.55; margin: 0 0 16px; }
+        * {
+            box-sizing: border-box
+        }
 
-    /* Main hero image and heading placement */
-    .hero {
-      position: relative;
-      display: block;
-      width: 100%;
-      aspect-ratio: 1581 / 936;
-      min-height: 360px;
-      background: #333 url("mainimagedemo1.webp") center center / cover no-repeat;
-      overflow: hidden;
-    }
-    .hero-copy-top {
-      position: absolute;
-      left: 2.3%;
-      top: 43%;
-      transform: translateY(-50%);
-      z-index: 2;
-      padding: 0;
-      color: #fff;
-      text-shadow: 2px 2px 6px rgba(0,0,0,.72);
-    }
-    .hero-copy-top h1 {
-      margin: 0 0 5px;
-      padding: 0;
-      color: #fff;
-      font-size: clamp(2.2rem, 3.2vw, 3.4rem);
-      line-height: 1.05;
-      font-weight: 800;
-    }
-    .hero-copy-top h2 {
-      margin: 0;
-      padding: 0;
-      color: #fff;
-      font-size: clamp(1.15rem, 1.8vw, 1.8rem);
-      line-height: 1.2;
-      font-weight: 600;
-    }
+        html {
+            scroll-behavior: smooth
+        }
 
-    .grid-container {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      grid-template-areas:
-        "intro image"
-        "media tabs"
-        "footer footer";
-      align-items: start;
-      gap: 24px 30px;
-      padding: 24px;
-      max-width: 1600px;
-      margin: 0 auto;
-    }
-    .left { grid-area: intro; padding: 12px 18px; }
-    .right { grid-area: image; min-width: 0; }
-    .right img { display: block; width: 100%; height: auto; }
-    .left2 { grid-area: media; min-width: 0; }
-    .right2 { grid-area: tabs; min-width: 0; padding: 8px 0; }
-    .intro { padding: 18px; }
-    .intro h2 { margin: 0 0 14px; font-size: 2rem; }
-    .intro p { text-align: justify; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--white);
+            font-family: "DM Sans", sans-serif
+        }
 
-    /* Media pane */
-    .media-pane {
-      width: 100%;
-      min-width: 0;
-      background: #f4f5f6;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .media-pane img { display: block; width: 100%; height: auto; }
-    .media-pane video { display: block; width: 100%; height: auto; }
-    .youtube-wrap {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-    }
-    .youtube-wrap iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .demo-photo { display: block; width: 100%; height: auto; }
+        a {
+            color: inherit;
+            text-decoration: none
+        }
 
-    /* Tabs: side-by-side on larger screens, stacked on phones */
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      width: 100%;
-      align-items: stretch;
-    }
-    .tab-button {
-      flex: 1 1 0;
-      min-width: 130px;
-      min-height: 54px;
-      padding: 12px 14px;
-      border: 1px solid #d6dce2;
-      border-radius: 9px;
-      background: linear-gradient(180deg, #f5f7f9 0%, #e7ebef 100%);
-      color: #34404b;
-      font: 700 14px/1.3 "Inter", sans-serif;
-      cursor: pointer;
-      transition: background .18s ease, color .18s ease, border-color .18s ease;
-    }
-    .tab-button:hover { background: #e3e9ee; border-color: #aebbc7; }
-    .tab-button[aria-selected="true"] {
-      color: #fff;
-      background: linear-gradient(135deg, #344b5d 0%, #182d3d 100%);
-      border-color: #263d4e;
-    }
-    .tab-button:focus-visible { outline: 3px solid #78a9d0; outline-offset: 3px; }
-    .tab-content {
-      flex: 0 0 100%;
-      min-width: 0;
-      margin-top: 5px;
-      padding: 20px 22px 12px;
-      border: 1px solid #e1e5e9;
-      border-radius: 10px;
-      background: #fff;
-      color: #373737;
-    }
-    .tab-content[hidden] { display: none; }
-    .tab-content h3 { margin: 0 0 12px; }
-    .tab-content p { min-height: 0; }
+        .wrap {
+            width: min(1120px, calc(100% - 56px));
+            margin: auto
+        }
 
-    .hero2 {
-      min-height: 340px;
-      display: flex;
-      align-items: center;
-      padding: 34px;
-      color: #fff;
-      background: #30363a url("quarterimage.webp") center / cover no-repeat;
-      border-radius: 8px;
-    }
-    .hero2 .hero-copy { max-width: 560px; }
-    .hero2 h1 { margin: 0 0 16px; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.05; }
-    .hero2 p { font-size: 1.1rem; }
-    .hero-price { font-weight: 800; }
-    .cta-button {
-      display: inline-block;
-      padding: 15px 30px;
-      border-radius: 9999px;
-      background: #15d798;
-      color: #fff;
-      font: 700 16px/1.2 "Open Sans", Arial, sans-serif;
-      text-decoration: none;
-    }
-    .cta-button:hover { background: #12bd86; }
-    .footer {
-      grid-area: footer;
-      margin: 10px 0 0;
-      padding: 36px 20px;
-      text-align: center;
-      background: #292f34;
-      color: #fff;
-    }
-    .footer h2 { margin: 0 0 8px; }
+        header {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            z-index: 5;
+            inset: 0 0 auto;
+            background: linear-gradient(180deg, rgba(3, 17, 30, .45), transparent)
+        }
 
-    @media (max-width: 1200px) {
-      .hero {
-        background-image: url("wrapped.webp");
-        aspect-ratio: 776 / 430;
-        min-height: 300px;
-      }
-      .hero-copy-top { top: 39%; left: 3%; }
-      .grid-container {
-        grid-template-columns: 1fr;
-        grid-template-areas: "intro" "image" "media" "tabs" "footer";
-        gap: 18px;
-        padding: 18px;
-      }
-      .left { padding: 4px; }
-    }
-    @media (max-width: 600px) {
-      .hero {
-        background-image: url("price.webp");
-        aspect-ratio: 639 / 415;
-        min-height: 250px;
-      }
-      .hero-copy-top { top: 31%; left: 4%; }
-      .hero-copy-top h1 { font-size: clamp(1.8rem, 7vw, 2.6rem); }
-      .hero-copy-top h2 { font-size: clamp(1rem, 4vw, 1.35rem); }
-      .grid-container { padding: 12px; gap: 14px; }
-      .intro { padding: 6px; }
-      .tabs { flex-direction: column; flex-wrap: nowrap; gap: 8px; }
-      .tab-button {
-        flex: 0 0 auto;
-        width: 100%;
-        min-width: 0;
-        min-height: 46px;
-        padding: 10px 14px;
-        font-size: 13px;
-      }
-      .tab-content { flex: 0 0 auto; width: 100%; padding: 16px 14px 8px; }
-      .hero2 { min-height: 280px; padding: 22px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; }
-    }
-  </style>
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .brand {
+            font: 700 18px "Space Grotesk";
+            letter-spacing: .12em
+        }
+
+        .brand b {
+            color: var(--blue)
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            color: #c6d4e0
+        }
+
+        .links a:hover {
+            color: var(--cyan)
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            border-radius: 30px;
+            padding: 12px 22px;
+            background: var(--blue);
+            color: white;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .04em;
+            box-shadow: 0 7px 24px #008de544;
+            transition: .2s
+        }
+
+        .pill:hover {
+            background: #20b3ff;
+            transform: translateY(-2px)
+        }
+
+        .hero {
+            min-height: 590px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 112px 0 48px;
+            background: radial-gradient(ellipse at 78% 45%, #103b58 0, transparent 35%), linear-gradient(110deg, #061a2b 0%, #071e31 60%, #031321 100%)
+        }
+
+        .hero:before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 95px;
+            width: 47%;
+            height: 310px;
+            opacity: .26;
+            background: repeating-linear-gradient(0deg, transparent 0 12px, #63829a 13px 14px);
+            mask-image: linear-gradient(90deg, transparent, #000)
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            position: relative;
+            z-index: 1
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            color: var(--cyan);
+            letter-spacing: .2em;
+            font-weight: 800;
+            text-transform: uppercase
+        }
+
+        .hero h1 {
+            font: 700 clamp(36px, 5vw, 62px)/1.04 "Space Grotesk";
+            margin: 15px 0 8px;
+            letter-spacing: -.05em
+        }
+
+        .hero h1 span {
+            display: block;
+            color: var(--blue)
+        }
+
+        .hero p {
+            max-width: 440px;
+            color: #b5c7d5;
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 20px 0 24px
+        }
+
+        .socials {
+            display: flex;
+            gap: 9px;
+            margin-top: 23px
+        }
+
+        .socials a {
+            width: 31px;
+            height: 31px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: #123b58;
+            border: 1px solid #2c789c;
+            color: #eaf8ff;
+            font-size: 12px;
+            font-weight: 800
+        }
+
+        .socials a:hover {
+            background: var(--blue)
+        }
+
+        .hero-photo {
+            height: 450px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: end
+        }
+
+        .hero-photo:before,
+        .hero-photo:after {
+            content: "";
+            position: absolute;
+            border: 1px solid #1b7894;
+            border-radius: 50%;
+            width: 245px;
+            height: 245px;
+            right: 8%;
+            top: 15%;
+            opacity: .45
+        }
+
+        .hero-photo:after {
+            width: 180px;
+            height: 180px;
+            right: 17%;
+            top: 22%;
+            border-style: dashed
+        }
+
+        .hero-photo img {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            max-width: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            mix-blend-mode: normal;
+            mask-image: linear-gradient(black 82%, transparent);
+            filter: saturate(.82);
+            border-radius: 48% 48% 0 0
+        }
+
+        .tech-strip {
+            background: #0a2b45;
+            border-top: 1px solid #17405c;
+            border-bottom: 1px solid #17405c
+        }
+
+        .tech-list {
+            min-height: 74px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            color: #d6e4ef;
+            font: 600 12px "Space Grotesk";
+            letter-spacing: .08em
+        }
+
+        .tech-list span {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            opacity: .86
+        }
+
+        .tech-list i {
+            width: 8px;
+            height: 8px;
+            background: var(--cyan);
+            border-radius: 2px;
+            display: inline-block;
+            box-shadow: 0 0 12px #32d6ec
+        }
+
+        .about {
+            padding: 76px 0;
+            background: linear-gradient(100deg, #08243a, #061a2b 75%);
+            overflow: hidden
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 76px;
+            align-items: center
+        }
+
+        .about-photo {
+            height: 360px;
+            max-width: 310px;
+            margin: auto;
+            position: relative;
+            border: 1px solid #31536a;
+            border-radius: 18px;
+            padding: 12px;
+            background: #102f49
+        }
+
+        .about-photo:before {
+            content: "";
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            border: 1px dashed #26b9c5;
+            border-radius: 50%;
+            left: -65px;
+            bottom: -35px;
+            opacity: .55
+        }
+
+        .about-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 18%;
+            border-radius: 12px;
+            position: relative;
+            z-index: 1
+        }
+
+        .about-copy {
+            position: relative
+        }
+
+        .about-copy:after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: -35px;
+            width: 78px;
+            height: 78px;
+            border: 9px solid #124c55;
+            border-left-color: #207d83;
+            border-radius: 50%;
+            opacity: .65
+        }
+
+        .about-copy h2,
+        .projects h2 {
+            font: 700 clamp(25px, 3vw, 34px)/1.2 "Space Grotesk";
+            margin: 9px 0 18px
+        }
+
+        .about-copy h2 span {
+            color: var(--blue)
+        }
+
+        .about-copy p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #aebfce;
+            max-width: 560px
+        }
+
+        .stats {
+            display: flex;
+            gap: 14px;
+            margin: 25px 0
+        }
+
+        .stat {
+            padding: 13px 17px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            min-width: 105px;
+            background: #0b2940
+        }
+
+        .stat strong {
+            display: block;
+            font: 700 19px "Space Grotesk";
+            color: #fff
+        }
+
+        .stat small {
+            font-size: 16px;
+            color: #9fb4c5
+        }
+
+        .projects {
+            padding: 76px 0 88px;
+            background: #071d30
+        }
+
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            margin-bottom: 28px
+        }
+
+        .section-head p {
+            font-size: 11px;
+            color: var(--cyan);
+            letter-spacing: .2em;
+            font-weight: 800;
+            margin: 0
+        }
+
+        .section-head h2 {
+            margin: 8px 0 0
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px
+        }
+
+        .project-card {
+            background: #f3f6fa;
+            border-radius: 10px;
+            overflow: hidden;
+            color: #12283a;
+            box-shadow: 0 10px 30px #0003;
+            transition: .22s
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 34px #0005
+        }
+
+        .preview {
+            height: 190px;
+            background: #e9edf2;
+            padding: 12px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .browser {
+            height: 100%;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 3px 12px #13283a20;
+            overflow: hidden
+        }
+
+        .browserbar {
+            height: 13px;
+            background: #e4e9ef;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 0 7px
+        }
+
+        .browserbar i {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #9ba9b5
+        }
+
+        .mock {
+            height: calc(100% - 13px);
+            padding: 14px;
+            background: linear-gradient(135deg, #fff, #edf5fb);
+            position: relative
+        }
+
+        .mock h4 {
+            font: 700 13px "Space Grotesk";
+            color: #172e43;
+            margin: 4px 0
+        }
+
+        .mock p {
+            font-size: 6px;
+            color: #657b8d;
+            max-width: 60%;
+            line-height: 1.5
+        }
+
+        .mock .bar {
+            height: 5px;
+            width: 54%;
+            background: #d7e4ee;
+            border-radius: 4px;
+            margin: 8px 0
+        }
+
+        .mock .bar.short {
+            width: 34%
+        }
+
+        .mock .mockbtn {
+            display: inline-block;
+            background: #098ff0;
+            width: 48px;
+            height: 12px;
+            border-radius: 8px;
+            margin-top: 4px
+        }
+
+        .mock .mockimage {
+            background-image: url("demo1_thumb.webp");
+            background-size: cover;
+            /* Scales image to cover the whole container */
+            background-position: center;
+            /* Centers the image */
+            background-repeat: no-repeat;
+            /* Prevents tiling */
+            height: 400px;
+            /* Container must have a height to show the image */
+            width: 100%;
+        }
+
+        .project-card:nth-child(2) .mock {
+            background: linear-gradient(135deg, #f8fcff, #e2f5f4)
+        }
+
+        .project-card:nth-child(2) .mockimage {
+            background: linear-gradient(135deg, #d4f3ed, #6bc8c0);
+            width: 43%
+        }
+
+        .project-card:nth-child(3) .mock {
+            background: #17283a
+        }
+
+        .project-card:nth-child(3) .mock h4 {
+            color: #fff
+        }
+
+        .project-card:nth-child(3) .mock p {
+            color: #aebdca
+        }
+
+        .project-card:nth-child(3) .mockimage {
+            background: linear-gradient(135deg, #f4c84c, #f58c37);
+            width: 42%
+        }
+
+        .card-info {
+            padding: 13px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .card-info h3 {
+            font: 700 12px "Space Grotesk";
+            margin: 0 0 4px
+        }
+
+        .card-info p {
+            font-size: 9px;
+            color: #6d8090;
+            margin: 0
+        }
+
+        .arrow {
+            width: 27px;
+            height: 27px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: white;
+            display: grid;
+            place-items: center;
+            font-size: 14px
+        }
+
+        footer {
+            padding: 24px 0;
+            border-top: 1px solid var(--line);
+            color: #8da4b6;
+            font-size: 11px
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap
+        }
+
+        @media(max-width:760px) {
+            .wrap {
+                width: min(100% - 36px, 560px)
+            }
+
+            header {
+                height: 66px
+            }
+
+            .links {
+                gap: 14px
+            }
+
+            .links a:not(.pill) {
+                display: none
+            }
+
+            .hero {
+                padding: 100px 0 28px;
+                min-height: auto
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto
+            }
+
+            .socials {
+                justify-content: center
+            }
+
+            .hero-photo {
+                height: 330px;
+                margin-top: 10px
+            }
+
+            .hero-photo img {
+                height: 100%
+            }
+
+            .hero-photo:before {
+                right: 20%;
+                width: 190px;
+                height: 190px
+            }
+
+            .hero-photo:after {
+                right: 28%;
+                width: 140px;
+                height: 140px
+            }
+
+            .tech-list {
+                justify-content: center;
+                padding: 20px 0;
+                gap: 18px 24px
+            }
+
+            .about {
+                padding: 58px 0
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 36px
+            }
+
+            .about-photo {
+                height: 320px;
+                width: 260px
+            }
+
+            .about-copy {
+                text-align: center
+            }
+
+            .about-copy p {
+                margin-left: auto;
+                margin-right: auto
+            }
+
+            .stats {
+                justify-content: center;
+                font-size: 1.5em !important;
+            }
+
+            .about-copy:after {
+                right: 4%;
+                top: -25px
+            }
+
+            .projects {
+                padding: 58px 0
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+                max-width: 430px;
+                margin: auto
+            }
+
+            .preview {
+                height: 210px
+            }
+
+            .section-head {
+                display: block
+            }
+
+            .section-head .pill {
+                margin-top: 12px
+            }
+        }
+
+        @media(min-width:761px) and (max-width:980px) {
+            .about-grid {
+                gap: 38px
+            }
+
+            .hero-photo {
+                height: 390px
+            }
+
+            .preview {
+                height: 160px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            *,
+            *:before,
+            *:after {
+                transition: none !important
+            }
+        }
+
+    </style>
 </head>
 
 <body>
-  <main class="wrapper">
-    <section class="hero" aria-label="Slate electric truck">
-      <div class="hero-copy-top">
-        <h1>Slate</h1>
-        <h2>Fully Electric Economy</h2>
-      </div>
-    </section>
+    <header>
+        <nav class="nav wrap" aria-label="Main navigation">
+            <a class="brand" href="#home">Fred<span style="color:var(--blue)">.</span>Hurson</a>
+            <div class="links">
+                <a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#projects">PROJECTS</a><a href="#contact">CONTACT</a>
+                <a class="pill" href="mailto:hursonfred1@gmail.com">LET'S TALK</a>
+            </div>
+        </nav>
+    </header>
 
-    <div class="grid-container">
-      <div class="left">
-        <section class="intro">
-          <h2>Slate</h2>
-          <p>The Slate is a battery-electric vehicle, the first to be manufactured by Slate Auto. It is available for customers to order as either a compact pickup truck or SUV, and designed to be convertible between the body styles. It was unveiled for reservations on April 24, 2025, began accepting preorders on June 24, 2026, with deliveries expected to begin in late 2026.</p>
-          <p>Slate says its new 201-hp electric vehicle is "a radical truck platform so customizable that it can transform from a 2-seat pickup to a 5-seat SUV.” Range of 150 miles on a 52.7-kWh battery pack or 240 on an 84.3-kWh pack. Pricing will be $20,000 "after federal incentives," Slate says. The company's investors include Jeff Bezos.</p>
-          <p>Starting price of US$24,950, the vehicle has simplified design with fewer parts and removes features such as an infotainment system, speakers, and power windows. All models are unpainted gray plastic exterior that support customization through accessories and vinyl wraps.</p>
+    <main>
+        <section class="hero" id="home">
+            <div class="wrap hero-grid">
+                <div>
+                    <div class="eyebrow">HELLO, I'M FRED</div>
+                    <h1><span>I'm a</span> Web Developer...</h1>
+                    <p>Or a 'Web Solutions Specialist' really, with 10+ years of experience in front-end development, digital campaigns, and SEO. I Build responsive landing pages, marketing emails, and CMS-driven web experiences in HTML, CSS, and JavaScript, and fit front-end markup across multiple CMS platforms to perfection. I Pair Google Analytics reporting, search and campaign optimization, and work fully remote, independently from initial direction through delivery.</p>
+                    <a class="pill" href="#projects">VIEW MY WORK&nbsp; ↗</a>
+                    <div class="socials" aria-label="Social links"><a href="#contact" aria-label="Dribbble">◉</a><a href="#contact" aria-label="Behance">Bē</a><a href="#contact" aria-label="Instagram">◎</a><a href="#contact" aria-label="LinkedIn">in</a></div>
+                </div>
+                <div class="hero-photo">
+                    <img src="workstation.webp" alt="The desk of a creative developer">
+                </div>
+            </div>
         </section>
-      </div>
 
-      <div class="right">
-        <section class="trims">
-          <img src="quarterimage.webp" alt="Slate truck view">
+        <div class="tech-strip">
+            <div class="wrap tech-list">
+                <span><i></i> HTML</span><span><i></i> CSS</span><span><i>&nbsp;&nbsp;JS</i> </span><span><i></i> BRACKETS</span><span><i></i> PHOTOSHOP</span>
+            </div>
+        </div>
+
+        <section class="about" id="about">
+            <div class="wrap about-grid">
+                <div class="about-photo"><img src="fph_head_shot.webp" alt="Jenna, UI/UX designer"></div>
+                <div class="about-copy">
+                    <div class="eyebrow">A LITTLE ABOUT ME</div>
+                    <h2>I AM AVAILABLE FOR Web<br><span>Development Projects Fully Remote</span></h2>
+                    <p>I'm passionate about creating clean, modern and user-friendly digital products. From early concepts to polished interfaces, I bring curiosity, care and a detail-focused approach to every project. I thrive in a team, web site production environment working for Account Associates on the frontline with clients.</p>
+                    <p>I enjoy collaborating with ambitious people and helping transform complex ideas into simple, memorable experiences.</p>
+                    <div class="stats">
+
+                        <div class="stat"><strong>10+ YEARS EXPERIENCE</strong><small><a href="https://www.affinitiv.com/advertising/">Affinitiv</a>, <a href="https://www.autotrader.com/">Autotrader</a>, <a href="https://www.dealer.com/">Dealer.com</a></small></div>
+                    </div>
+                    <a class="pill" href="mailto:hursonfred1@gmail.com.com">HIRE ME&nbsp; ↗</a>
+                    <a class="pill" href="https://sites.google.com/view/fredhurson/home">Google Sites Portfolio</a>
+                </div>
+            </div>
         </section>
-      </div>
 
-      <div class="left2">
-        <section class="media-pane" aria-label="Selected Slate media">
-          <div id="media-spec">
-            <img src="slatespecslast.webp" alt="Slate vehicle specifications">
-          </div>
-          <div id="media-video" hidden>
-            <video loop muted autoplay playsinline controls>
-              <source src="slatedemo.mp4" type="video/mp4">
-              <source src="mov_bbb.ogg" type="video/ogg">
-              Your browser does not support HTML5 video.
-            </video>
-          </div>
-          <div id="media-youtube" class="youtube-wrap" hidden>
-            <iframe src="https://www.youtube.com/embed/mxMd3SNEKCA"
-              title="Meet the Slate" loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-          </div>
-          <div id="media-demo" hidden>
-            <img class="demo-photo" src="collage.webp" alt="Page creator">
-          </div>
+        <section class="projects" id="projects">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <p>MY CREATIVE WORK</p>
+                        <h2>RECENT PROJECTS</h2>
+                    </div><a class="pill" href="#contact">VIEW ALL PROJECTS&nbsp; ↗</a>
+                </div>
+                <div class="project-grid">
+                    <article class="project-card">
+                        <div class="preview">
+                            <div class="browser">
+                                <div class="browserbar"><a href="https://fredhurson.github.io/demo/"><i></i><i></i><i></i></a></div>
+                                <div class="mock">
+                                    <a href="https://fredhurson.github.io/demo/">
+                                        <h4>NO SCROLL SHOW w/ RESPONSIVE IMAGE SWAPPING TRICKS</h4>
+                                        <h4>JS Tabs show info without scrolling</h4>
+                                    </a>
+
+                                    <div class="mockimage"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div>
+                                <h3>Landing Page Design</h3>
+                                <p>brackets, ps, js, html5, css3, mobile</p>
+                            </div><a class="arrow" href="https://fredhurson.github.io/demo/" aria-label="View Website Design project">↗</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="preview">
+                            <div class="browser">
+                                <div class="browserbar"><i></i><i></i><i></i></div>
+                                <div class="mock">
+                                    <h4>Main Blogs Page</h4>
+                                    <p>Keep audience engaged with onine sites</p>
+                                    <div class="bar"></div>
+                                    <div class="bar short"></div><span class="mockbtn"></span>
+                                    <div class="mockimage"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div>
+                                <h3>Mobile App Design</h3>
+                                <p>PRODUCT DESIGN · 2025</p>
+                            </div><a class="arrow" href="#contact" aria-label="View Mobile App project">↗</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="preview">
+                            <div class="browser">
+                                <div class="browserbar"><i></i><i></i><i></i></div>
+                                <div class="mock">
+                                    <h4>IDEA - GoCards</h4>
+                                    <p>Information Cards You Create as needed</p>
+                                    <div class="bar"></div>
+                                    <div class="bar short"></div><span class="mockbtn"></span>
+                                    <div class="mockimage"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div>
+                                <h3>Dashboard Design</h3>
+                                <p>WEB APP · 2025</p>
+                            </div><a class="arrow" href="#contact" aria-label="View Dashboard project">↗</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
-      </div>
-
-      <div class="right2">
-        <section class="tabs" aria-label="Slate information tabs">
-          <button class="tab-button" type="button" data-tab="1" aria-selected="true">No Frills Truck</button>
-          <button class="tab-button" type="button" data-tab="2" aria-selected="false">Take a look - MP4</button>
-          <button class="tab-button" type="button" data-tab="3" aria-selected="false">Meet the Slate - YouTube</button>
-          <button class="tab-button" type="button" data-tab="4" aria-selected="false">This Page - Demo</button>
-
-          <div class="tab-content" id="tab-panel-1">
-            <section class="hero2">
-              <div class="hero-copy">
-                <h1>NO FRILLS, EXCEPT<br>WHAT YOU WANT.</h1>
-                <p>Equipped with the essentials for <span class="hero-price">$24,950.</span><sup>*</sup> No packages or dealer add-ons. There are 200 Plus accessories available to add whenever you want.</p>
-                <a href="https://sites.google.com/view/fredhurson/home" class="cta-button">PRE-ORDER NOW</a>
-              </div>
-            </section>
-          </div>
-
-          <div class="tab-content" id="tab-panel-2" hidden>
-            <h3>A Slate is a radically simple vehicle, for lots of reasons.</h3>
-            <p>We set out to make the most affordable new vehicle possible. We miss the days when a truck was just a truck. We like looking at a road, not a screen. We don’t like paying for stuff we don’t need. We like picking out the stuff we do need. We know not everyone likes what we like. We want our cars to work with our phones, not the other way around. We engineered it to last a long time. We made more room for people and cargo, precious and otherwise. We decided it should cater to your taste, not ours.</p>
-          </div>
-
-          <div class="tab-content" id="tab-panel-3" hidden>
-            <h3>Slate Bodystyles</h3>
-            <p>The base Slate model will be a pickup truck, but can be configured as a 5-seat SUV with a traditional squared-off roof or a fastback roof. While customers will be able to purchase the parts to complete the conversions (roll cage, rear bench seat, and exterior shell with two additional side curtain airbags), in June 2026 the company announced it would offer the two SUV designs from the factory.</p>
-            <h3>Slate Service and customization</h3>
-            <p>The company plans to provide repair guides through its Slate U platform and has announced a 10-year/110,000-mile battery and powertrain warranty. In October 2025, Slate Auto announced a partnership with RepairPal to provide owners access to a network of approximately 3,000 service locations in the United States, including more than 100 facilities capable of performing high-voltage electric vehicle repairs.</p>
-            <p>The vehicle will support extensive customization through a marketplace offering more than 200 accessories, including vinyl wraps, roof racks, audio systems, seat covers, and light covers. *(from Wikipedia)</p>
-          </div>
-
-          <div class="tab-content" id="tab-panel-4" hidden>
-            <h3>Hi, My Name is Fred Hurson</h3>
-            <p>This page is a demo of work. Good on Desktop or mobile. The image at the top has an overlay of 'live' h1 &amp; h2 text. There are three images displayed in the background and they swap when changing from Desktop to tablet to phone via CSS. The tab section changes two panes of information, with one click of the tab.</p>
-            <p>I would like to call myself a 'Web Solutions Specialist' with 10+ years of experience in front-end development, digital campaigns, and SEO. I build responsive landing pages, marketing emails, and CMS-driven web experiences in HTML, CSS, and JavaScript. I pair Google Analytics reporting with search and campaign optimization, and work independently, fully remote, from initial direction through delivery.</p>
-            <h3><a href="https://fredhurson.github.io/demo/web_solutions_specialist.pdf" style="text-decoration:underline;">Resume Link</a><br><a href="https://chatgpt.com/share/6b05a5fe-3724-83e9-a448-c9ffe687cc90">Link to Chatgpt</a> explaining the JS I created and adapted from research years ago-note: really ego out the window I honestly understand more about this fromm today's interaction with ChatGpt - I have been enlightened so to speak as the Action desired -  "change what someone sees on a webpage without having to reload the page." - is solved!!!</h3>
-          </div>
-        </section>
-      </div>
-    </div>
-  </main>
-
-  <script>
-    (() => {
-      const buttons = document.querySelectorAll(".tab-button");
-      const panels = document.querySelectorAll(".tab-content");
-      const media = {
-        1: document.getElementById("media-spec"),
-        2: document.getElementById("media-video"),
-        3: document.getElementById("media-youtube"),
-        4: document.getElementById("media-demo")
-      };
-
-      function selectTab(number) {
-        buttons.forEach((button) => {
-          const selected = button.dataset.tab === String(number);
-          button.setAttribute("aria-selected", selected ? "true" : "false");
-        });
-        panels.forEach((panel, index) => {
-          panel.hidden = index !== number - 1;
-        });
-        Object.entries(media).forEach(([key, element]) => {
-          element.hidden = key !== String(number);
-        });
-      }
-
-      buttons.forEach((button) => {
-        button.addEventListener("click", () => selectTab(button.dataset.tab));
-      });
-      selectTab(1);
-    })();
-  </script>
+    </main>
+    <footer id="contact">
+        <div class="wrap footer-inner"><span>© 2027 FRED. ALL RIGHTS RESERVED.</span><a href="mailto:hello@example.com">LET'S TAKE THE WEB BY THE HORNS&nbsp; ↗</a></div>
+    </footer>
 </body>
+
 </html>
